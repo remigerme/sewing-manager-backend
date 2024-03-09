@@ -1,0 +1,71 @@
+enum SewingItemType {
+  TISSUE
+  PATTERN
+  PRODUCTION
+  ACCESSORY
+}
+
+union SewingItem = Tissue | Pattern | Production | Accessory
+
+type TagCategory {
+  id: Int!
+  name: String!
+  tags: [Tag!]!
+}
+
+type Tag {
+  id: Int!
+  name: String!
+  category: TagCategory!
+  sewingItems: [SewingItem!]!
+}
+
+type Tissue {
+  id: Int!
+  name: String!
+  price: Float
+  footage_total: Float
+  footage_left: Float
+  description: String
+  tags: [Tag!]!
+  sewingItems: [SewingItem!]!
+  pictures: [Picture]
+}
+
+type Pattern {
+  id: Int!
+  name: String!
+  numeric: Bool!
+  price: Float
+  description: String
+  tags: [Tag!]!
+  sewingItems: [SewingItem!]!
+  pictures: [Picture]
+}
+
+type Production {
+  id: Int!
+  name: String!
+  price: Float
+  description: String
+  tags: [Tag!]!
+  sewingItems: [SewingItem!]!
+  pictures: [Picture]
+}
+
+type Accessory {
+  id: Int!
+  name: String!
+  price: Float
+  quantity_total: Float
+  quantity_left: Float
+  description: String
+  tags: [Tag!]!
+  sewingItems: [SewingItem!]!
+  pictures: [Picture]
+}
+
+type Picture {
+  id: Int!
+  url: String
+}
