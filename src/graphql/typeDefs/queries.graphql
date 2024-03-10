@@ -2,10 +2,6 @@ type Query {
   tagCategories: [TagCategory!]!
   tags(category: TagCategory!): [Tag!]!
 
-  tissue(id: Int!): Tissue
-  pattern(id: Int!): Pattern
-  production(id: Int!): Production
-  accessory(id: Int!): Accessory
-
+  sewingItem(id: Int!): SewingItem
   search(type: SewingItemType, tag: Tag): [SewingItem!]!
 }
