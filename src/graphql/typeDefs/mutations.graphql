@@ -1,0 +1,36 @@
+type Mutation {
+  createTagCategory(name: String!): TagCategory
+  deleteTagCategory(id: Int!): Boolean!
+
+  createTag(name: String!, category: TagCategory!): Tag
+  editTag(id: Int!, name: String!, category: TagCategory!): Tag
+  deleteTag(id: Int!): Boolean!
+
+  createSewingItem(
+    id: Int!
+    name: String!
+    type: SewingItemType!
+    price: Float
+    quantity_total: Float
+    quantity_left: Float
+    description: String
+    tags: [Tag!]!
+    sewingItems: [SewingItem!]!
+    pictures: [Picture!]!
+  ): SewingItem
+
+  editSewingItem(
+    id: Int!
+    name: String!
+    type: SewingItemType!
+    price: Float
+    quantity_total: Float
+    quantity_left: Float
+    description: String
+    tags: [Tag!]!
+    sewingItems: [SewingItem!]!
+    pictures: [Picture!]!
+  ): SewingItem
+
+  deleteSewingItem(id: Int!): Boolean!
+}
